@@ -1,20 +1,26 @@
+import { useMutation } from '@apollo/client'
 import Router from 'next/router'
 import useForm from '../lib/useForm'
 import Form from './styles/Form'
 import DisplayError from './ErrorMessage'
+import CREATE_BATTLE_PASS_MUTATION from '../mutations/createBattlePass'
 
 export default function CreateBattlePass() {
   const { inputs, handleChange, resetForm, clearForm } = useForm({
-    name: '',
-    description: '',
+    name: 'test',
+    description: 'test',
     status: 'DRAFT',
-    start_date: '',
-    end_date: '',
-    experience: '',
+    start_date: '2022-01-12T00:00:00.000Z',
+    end_date: '2022-01-13T00:00:00.000Z',
+    experience: 123,
   })
 
-  const error = ''
-  const loading = ''
+  const [createBattlePass, { loading, error, data }] = useMutation(
+    CREATE_BATTLE_PASS_MUTATION,
+    {
+      variables: inputs,
+    }
+  )
 
   return (
     <Form
@@ -23,6 +29,7 @@ export default function CreateBattlePass() {
 
         // Submit input fields to backend:
         const res = await createBattlePass()
+        console.log(res)
         clearForm()
 
         Router.push({
