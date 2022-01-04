@@ -14,14 +14,14 @@ export default function BattlePassCard({ bp }: BattlePassCardProps) {
 
   return (
     <CardStyles>
-      <h3 className="title">
-        {bp.name} - <span className="status">{bp.status}</span>
+      <h3 className="card-title">
+        {bp.name} - <span>{bp.status}</span>
       </h3>
-      <p className="date">
-        <span className="date-label">Start:</span> {start}
+      <p className="text">
+        <span className="label">Start:</span> {start}
       </p>
-      <p className="date">
-        <span className="date-label">End:</span> {end}
+      <p className="text">
+        <span className="label">End:</span> {end}
       </p>
       <Link href={`/bp/${bp.id}`} passHref={true}>
         <Button>View Battle Pass &gt;&gt;</Button>
