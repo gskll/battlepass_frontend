@@ -38,6 +38,9 @@ const SINGLE_BATTLE_PASS = gql`
         description
         type
         rarity
+        level {
+          id
+        }
       }
     }
   }

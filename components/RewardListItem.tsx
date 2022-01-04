@@ -12,7 +12,7 @@ const RewardListItem = ({ reward }: RewardListItemProps) => (
     <h3>{reward.name}</h3>
     <div>{formatUppercaseString(reward.rarity)}</div>
     <div>{formatUppercaseString(reward.type)}</div>
-    <Link href="/">View →</Link>
+    <Link href={`/level/${reward.level.id}`}>View →</Link>
   </ListItemStyles>
 )
 

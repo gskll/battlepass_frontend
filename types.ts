@@ -40,6 +40,7 @@ export interface Reward {
   description: string
   type: string
   rarity: string
+  level: Level
 }
 
 export interface Mission {

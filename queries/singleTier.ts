@@ -24,6 +24,9 @@ const SINGLE_TIER = gql`
         name
         type
         rarity
+        level {
+          id
+        }
       }
     }
   }
