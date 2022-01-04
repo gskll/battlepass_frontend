@@ -12,7 +12,7 @@ const TierListItem = ({ tier }: TierListItemProps) => (
     <h3>{tier.name}</h3>
     <div>Price: {formatMoney(parseInt(tier.price))}</div>
     <div>{tier.levels.length} levels</div>
-    <Link href="/">View &gt;&gt;</Link>
+    <Link href="/">View →</Link>
   </ListItemStyles>
 )
 

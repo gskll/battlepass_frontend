@@ -5,8 +5,9 @@ import Button from './styles/Button'
 import BattlePassStyles from './styles/BattlePassStyles'
 import formatISODate from '../lib/formatISODate'
 import TierListItem from './TierListItem'
-import { Mission, Tier } from '../types'
+import { Mission, Reward, Tier } from '../types'
 import MissionListItem from './MissionListItem'
+import RewardListItem from './RewardListItem'
 
 interface BattlePassProps {
   id: string
@@ -61,7 +62,11 @@ export default function BattlePass({ id }: BattlePassProps) {
         <div className="sub-title">
           <h2>Rewards</h2>
         </div>
-        <div className="rewards-list">Rewards List</div>
+        <div className="rewards-list">
+          {battlePass.rewards.map((reward: Reward) => (
+            <RewardListItem key={reward.id} reward={reward} />
+          ))}
+        </div>
       </div>
     </BattlePassStyles>
   )
