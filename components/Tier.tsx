@@ -4,7 +4,7 @@ import { Level, Reward, Tier } from '../types'
 import SINGLE_TIER from '../queries/singleTier'
 import SinglePageStyles from './styles/SinglePageStyles'
 import Link from 'next/link'
-import Button from './styles/Button'
+import OutlineBtn from './styles/OutlineBtn'
 import formatMoney from '../lib/formatMoney'
 import RewardListItem from './RewardListItem'
 import LevelListItem from './LevelListItem'
@@ -34,13 +34,13 @@ const Tier = ({ id }: TierProps) => {
         <div className="accent">
           <p>Tier belongs to {tier.battlepass?.name} battle pass</p>
           <Link href={`/bp/${tier.battlepass?.id}`} passHref>
-            <Button>View battle pass</Button>
+            <OutlineBtn>View battle pass</OutlineBtn>
           </Link>
         </div>
         <div className="levels">
           <div className="sub-title">
             <h2>Levels</h2>
-            <Button className="add-button">+ Add level</Button>
+            <OutlineBtn className="add-button">+ Add level</OutlineBtn>
           </div>
           <div className="levels-list">
             {tier.levels.map((level: Level) => (

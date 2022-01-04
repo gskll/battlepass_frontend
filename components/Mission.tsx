@@ -5,7 +5,7 @@ import SINGLE_MISSION from '../queries/singleMission'
 import SinglePageStyles from './styles/SinglePageStyles'
 import formatUppercaseString from '../lib/formatUppercaseString'
 import Link from 'next/link'
-import Button from './styles/Button'
+import OutlineBtn from './styles/OutlineBtn'
 
 interface MissionProps {
   id: string
@@ -35,7 +35,7 @@ const Mission = ({ id }: MissionProps) => {
         <div className="accent">
           <p>Mission belongs to {mission.battlepass?.name} battle pass</p>
           <Link href={`/bp/${mission.battlepass?.id}`} passHref>
-            <Button>View battle pass</Button>
+            <OutlineBtn>View battle pass</OutlineBtn>
           </Link>
         </div>
       </div>

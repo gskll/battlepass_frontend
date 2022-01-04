@@ -1,7 +1,9 @@
 import { gql, useQuery } from '@apollo/client'
+import Link from 'next/link'
 import styled from 'styled-components'
+import { BattlePassOverview } from '../types'
 import BattlePassCard from './BattlePassCard'
-import Button from './styles/Button'
+import SolidBtn from './styles/SolidBtn'
 
 export const ALL_BATTLEPASSES_QUERY = gql`
   query ALL_BATTLEPASSES_QUERY {
@@ -31,10 +33,12 @@ const BattlePasses = () => {
   return (
     <div>
       <h1>All Battle Passes</h1>
-      <Button>+ Create new battle pass</Button>
+      <Link href="/bp/new" passHref>
+        <SolidBtn>+ Create new battle pass</SolidBtn>
+      </Link>
       <div>
         <BattlePassGridStyles>
-          {data.battlePasses.map((bp) => (
+          {data.battlePasses.map((bp: BattlePassOverview) => (
             <BattlePassCard key={bp.id} bp={bp} />
           ))}
         </BattlePassGridStyles>

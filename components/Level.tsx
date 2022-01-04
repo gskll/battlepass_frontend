@@ -5,8 +5,9 @@ import SINGLE_LEVEL from '../queries/singleLevel'
 import SinglePageStyles from './styles/SinglePageStyles'
 import formatUppercaseString from '../lib/formatUppercaseString'
 import Link from 'next/link'
-import Button from './styles/Button'
+import OutlineBtn from './styles/OutlineBtn'
 import CardStyles from './styles/CardStyles'
+import SolidBtn from './styles/SolidBtn'
 
 interface LevelProps {
   id: string
@@ -42,13 +43,13 @@ const Level = ({ id }: LevelProps) => {
           </p>
           <p className="text">{reward.description}</p>
           <Link href="/" passHref={true}>
-            <Button>Edit reward ✏️</Button>
+            <SolidBtn>Edit reward ✏️</SolidBtn>
           </Link>
         </CardStyles>
         <div className="accent">
           <p>Level belongs to {level.tier.name} tier</p>
           <Link href={`/tier/${level.tier.id}`} passHref>
-            <Button>View tier</Button>
+            <OutlineBtn>View tier</OutlineBtn>
           </Link>
         </div>
       </div>

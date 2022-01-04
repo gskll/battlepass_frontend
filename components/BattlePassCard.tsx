@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import formatISODate from '../lib/formatISODate'
 import { BattlePassOverview } from '../types'
-import Button from './styles/Button'
+import OutlineBtn from './styles/OutlineBtn'
 import CardStyles from './styles/CardStyles'
 
 interface BattlePassCardProps {
@@ -24,7 +24,7 @@ export default function BattlePassCard({ bp }: BattlePassCardProps) {
         <span className="label">End:</span> {end}
       </p>
       <Link href={`/bp/${bp.id}`} passHref={true}>
-        <Button>View Battle Pass &gt;&gt;</Button>
+        <OutlineBtn>View Battle Pass →</OutlineBtn>
       </Link>
     </CardStyles>
   )

@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-const Button = styled.a`
-  background: white;
-  color: var(--red, #e72222);
+const SolidBtn = styled.a`
   border: 2px solid var(--red, #e72222);
   font-weight: 500;
   border-radius: 10px;
@@ -12,15 +10,17 @@ const Button = styled.a`
   transform: skew(-2deg);
   display: inline-block;
   transition: all 0.5s;
+  background: var(--red, #e72222);
+  color: white;
   &[disabled] {
     opacity: 0.5;
   }
   &:hover {
-    background: var(--red, #e72222);
-    color: white;
+    background: white;
+    color: var(--red, #e72222);
     cursor: pointer;
     text-decoration: none;
   }
 `
 
-export default Button
+export default SolidBtn

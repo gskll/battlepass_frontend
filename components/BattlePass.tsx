@@ -1,7 +1,7 @@
 import { useQuery } from '@apollo/client'
 import SINGLE_BATTLE_PASS from '../queries/singleBattlePass'
 import ErrorMessage from './ErrorMessage'
-import Button from './styles/Button'
+import OutlineBtn from './styles/OutlineBtn'
 import SinglePageStyles from './styles/SinglePageStyles'
 import formatISODate from '../lib/formatISODate'
 import TierListItem from './TierListItem'
@@ -42,7 +42,7 @@ export default function BattlePass({ id }: BattlePassProps) {
       <div className="tiers">
         <div className="sub-title">
           <h2>Tiers</h2>
-          <Button className="add-button">+ Add tier</Button>
+          <OutlineBtn className="add-button">+ Add tier</OutlineBtn>
         </div>
         <div className="tier-list">
           {battlePass.tiers.map((tier: Tier) => (
@@ -53,7 +53,7 @@ export default function BattlePass({ id }: BattlePassProps) {
       <div className="Missions">
         <div className="sub-title">
           <h2>Missions</h2>
-          <Button className="add-button">+ Add mission</Button>
+          <OutlineBtn className="add-button">+ Add mission</OutlineBtn>
         </div>
         <div className="mission-list">
           {battlePass.missions.map((mission: Mission) => (
