@@ -6,6 +6,7 @@ import ErrorMessage from './ErrorMessage'
 import Button from './styles/Button'
 import BattlePassStyles from './styles/BattlePassStyles'
 import formatISODate from '../lib/formatISODate'
+import TierListItem from './TierListItem'
 
 interface BattlePassProps {
   id: string
@@ -15,8 +16,6 @@ export default function BattlePass({ id }: BattlePassProps) {
   const { data, loading, error } = useQuery(SINGLE_BATTLE_PASS, {
     variables: { id },
   })
-
-  console.log({ data, loading, error })
 
   if (loading) return <p>Loading...</p>
   if (error) return <ErrorMessage error={error} />
@@ -41,7 +40,11 @@ export default function BattlePass({ id }: BattlePassProps) {
           <h2>Tiers</h2>
           <Button className="add-button">+ Add tier</Button>
         </div>
-        <div className="tier-list">Tier List</div>
+        <div className="tier-list">
+          {battlePass.tiers.map((tier) => (
+            <TierListItem key={tier.id} tier={tier} />
+          ))}
+        </div>
       </div>
       <div className="Missions">
         <div className="sub-title">
