@@ -1,5 +1,6 @@
 import { gql, useQuery } from '@apollo/client'
 import styled from 'styled-components'
+import BattlePassCard from './BattlePassCard'
 import Button from './styles/Button'
 
 export const ALL_BATTLEPASSES_QUERY = gql`
@@ -18,6 +19,7 @@ const BattlePassGridStyles = styled.div`
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
+  margin-top: 10rem;
 `
 
 const BattlePasses = () => {
@@ -33,7 +35,7 @@ const BattlePasses = () => {
       <div>
         <BattlePassGridStyles>
           {data.battlePasses.map((bp) => (
-            <div key={bp.id}>{bp.name}</div>
+            <BattlePassCard key={bp.id} bp={bp} />
           ))}
         </BattlePassGridStyles>
       </div>
