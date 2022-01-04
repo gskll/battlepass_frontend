@@ -7,6 +7,7 @@ export interface BattlePassOverview {
 }
 
 export interface BattlePass {
+  id: string
   name: string
   description: string
   status: string
@@ -45,4 +46,5 @@ export interface Mission {
   description: string
   type: string
   goal_type: string
+  battlepass?: BattlePass
 }

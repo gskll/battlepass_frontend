@@ -12,7 +12,7 @@ const MissionListItem = ({ mission }: MissionListItemProps) => (
     <h3>{mission.name}</h3>
     <div>{formatUppercaseString(mission.type)}</div>
     <div>{formatUppercaseString(mission.goal_type)}</div>
-    <Link href="/">View →</Link>
+    <Link href={`/mission/${mission.id}`}>View →</Link>
   </ListItemStyles>
 )
 
