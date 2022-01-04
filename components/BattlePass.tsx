@@ -1,12 +1,12 @@
 import { useQuery } from '@apollo/client'
-import gql from 'graphql-tag'
-import styled from 'styled-components'
 import SINGLE_BATTLE_PASS from '../queries/singleBattlePass'
 import ErrorMessage from './ErrorMessage'
 import Button from './styles/Button'
 import BattlePassStyles from './styles/BattlePassStyles'
 import formatISODate from '../lib/formatISODate'
 import TierListItem from './TierListItem'
+import { Mission, Tier } from '../types'
+import MissionListItem from './MissionListItem'
 
 interface BattlePassProps {
   id: string
@@ -41,7 +41,7 @@ export default function BattlePass({ id }: BattlePassProps) {
           <Button className="add-button">+ Add tier</Button>
         </div>
         <div className="tier-list">
-          {battlePass.tiers.map((tier) => (
+          {battlePass.tiers.map((tier: Tier) => (
             <TierListItem key={tier.id} tier={tier} />
           ))}
         </div>
@@ -51,7 +51,11 @@ export default function BattlePass({ id }: BattlePassProps) {
           <h2>Missions</h2>
           <Button className="add-button">+ Add mission</Button>
         </div>
-        <div className="mission-list">Mission List</div>
+        <div className="mission-list">
+          {battlePass.missions.map((mission: Mission) => (
+            <MissionListItem key={mission.id} mission={mission} />
+          ))}
+        </div>
       </div>
       <div className="rewards">
         <div className="sub-title">
