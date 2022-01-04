@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const BattlePassStyles = styled.div`
+const SinglePageStyles = styled.div`
   .title {
     text-align: center;
     color: white;
@@ -16,17 +16,21 @@ const BattlePassStyles = styled.div`
     font-size: 2rem;
   }
 
-  .dates {
+  .sub-head {
     display: flex;
     justify-content: space-around;
   }
 
-  .experience {
+  .accent {
     font-weight: 700;
   }
 
   h2 {
     font-size: 3rem;
+  }
+
+  .description > * {
+    display: inline-block;
   }
 
   .sub-title > * {
@@ -35,4 +39,4 @@ const BattlePassStyles = styled.div`
   }
 `
 
-export default BattlePassStyles
+export default SinglePageStyles

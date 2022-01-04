@@ -2,7 +2,7 @@ import { useQuery } from '@apollo/client'
 import SINGLE_BATTLE_PASS from '../queries/singleBattlePass'
 import ErrorMessage from './ErrorMessage'
 import Button from './styles/Button'
-import BattlePassStyles from './styles/BattlePassStyles'
+import SinglePageStyles from './styles/SinglePageStyles'
 import formatISODate from '../lib/formatISODate'
 import TierListItem from './TierListItem'
 import { Mission, Reward, Tier } from '../types'
@@ -23,17 +23,20 @@ export default function BattlePass({ id }: BattlePassProps) {
 
   const { battlePass } = data
   return (
-    <BattlePassStyles>
+    <SinglePageStyles>
       <div className="overview">
         <h1 className="title">
           {battlePass.name} - <span>{battlePass.status}</span>
         </h1>
-        <div className="dates">
+        <div className="sub-head">
           <p>Start: {formatISODate(battlePass.start_date)}</p>
           <p>End: {formatISODate(battlePass.end_date)}</p>
         </div>
-        <div className="experience">
+        <div className="accent">
           <p>Experience between levels: {battlePass.experience} points</p>
+        </div>
+        <div className="description">
+          <p>Description: {battlePass.description}</p>
         </div>
       </div>
       <div className="tiers">
@@ -68,6 +71,6 @@ export default function BattlePass({ id }: BattlePassProps) {
           ))}
         </div>
       </div>
-    </BattlePassStyles>
+    </SinglePageStyles>
   )
 }
