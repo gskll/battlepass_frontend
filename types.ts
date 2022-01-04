@@ -24,6 +24,8 @@ export interface Tier {
   name: string
   price: string
   levels: Level[]
+  rewards?: Reward[]
+  battlepass?: BattlePass
 }
 
 export interface Level {

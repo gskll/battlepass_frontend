@@ -63,7 +63,7 @@ export default function BattlePass({ id }: BattlePassProps) {
       </div>
       <div className="rewards">
         <div className="sub-title">
-          <h2>Rewards</h2>
+          <h2>All Rewards in Battle Pass</h2>
         </div>
         <div className="rewards-list">
           {battlePass.rewards.map((reward: Reward) => (
