@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Button = styled.button`
+const Button = styled.a`
   background: white;
   color: var(--red, #e72222);
   border: 2px solid var(--red, #e72222);
@@ -19,6 +19,7 @@ const Button = styled.button`
     background: var(--red, #e72222);
     color: white;
     cursor: pointer;
+    text-decoration: none;
   }
 `
 
