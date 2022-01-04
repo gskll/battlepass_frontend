@@ -23,7 +23,9 @@ export default function BattlePassCard({ bp }: BattlePassCardProps) {
       <p className="date">
         <span className="date-label">End:</span> {end}
       </p>
-      <Button>View Battle Pass >></Button>
+      <Link href={`/bp/${bp.id}`} passHref={true}>
+        <Button>View Battle Pass &gt;&gt;</Button>
+      </Link>
     </CardStyles>
   )
 }
