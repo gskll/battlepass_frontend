@@ -10,10 +10,11 @@ const SinglePageStyles = styled.div`
     text-align: center;
     transform: skew(-5deg) rotate(-1deg);
     margin-top: 2rem;
-    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
   }
   .overview {
     font-size: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--black, black);
   }
 
   .sub-head {
