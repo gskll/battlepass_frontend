@@ -1,19 +1,31 @@
 import { useEffect, useState } from 'react'
 import formatISODate from './formatISODate'
 
-export default function useForm(initial = {}) {
+const useForm = (initial = {}) => {
   const [inputs, setInputs] = useState(initial)
   const initialValues = Object.values(initial).join('')
+  const [errors, setErrors] = useState({})
 
   useEffect(() => {
     setInputs(initial)
   }, [initialValues])
 
   function handleChange(e) {
+    e.persist()
+
     let { value, name, type } = e.target
 
     if (type === 'number') {
-      value = parseInt(value)
+      if (isNaN(parseInt(value))) {
+        setErrors({
+          [name]: 'Error: numbers only in this field',
+        })
+      } else if (value > 10000000 || value < 0) {
+        setErrors({ [name]: 'Error: number must be between 0 and 10,000,000' })
+      } else {
+        setErrors({})
+        value = parseInt(value)
+      }
     }
 
     if (type === 'date') {
@@ -38,5 +50,7 @@ export default function useForm(initial = {}) {
     setInputs(blankState)
   }
 
-  return { inputs, handleChange, resetForm, clearForm }
+  return { inputs, errors, handleChange, resetForm, clearForm }
 }
+
+export default useForm
