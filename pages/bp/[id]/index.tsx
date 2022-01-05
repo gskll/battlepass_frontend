@@ -8,7 +8,7 @@ interface BattlePassPageProps {
 }
 
 const BattlePassPage: NextPage<BattlePassPageProps> = ({ query }) => {
-  return <BattlePass id={query.id} />
+  return <BattlePass bp_id={query.id} />
 }
 
 export default BattlePassPage

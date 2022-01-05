@@ -11,12 +11,12 @@ import RewardListItem from './RewardListItem'
 import Link from 'next/link'
 
 interface BattlePassProps {
-  id: string
+  bp_id: string
 }
 
-export default function BattlePass({ id }: BattlePassProps) {
+export default function BattlePass({ bp_id }: BattlePassProps) {
   const { data, loading, error } = useQuery(SINGLE_BATTLE_PASS, {
-    variables: { id },
+    variables: { bp_id },
   })
 
   if (loading) return <p>Loading...</p>
@@ -44,7 +44,7 @@ export default function BattlePass({ id }: BattlePassProps) {
       <div className="tiers">
         <div className="sub-title">
           <h2>Tiers</h2>
-          <Link href={`/bp/${id}/tier`} passHref>
+          <Link href={`/bp/${bp_id}/tier`} passHref>
             <OutlineBtn>+ Add tier</OutlineBtn>
           </Link>
         </div>

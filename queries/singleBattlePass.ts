@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 const SINGLE_BATTLE_PASS = gql`
-  query SINGLE_BATTLE_PASS($id: ID!) {
-    battlePass(where: { id: $id }) {
+  query SINGLE_BATTLE_PASS($bp_id: ID!) {
+    battlePass(where: { id: $bp_id }) {
       name
       description
       status

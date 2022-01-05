@@ -4,6 +4,7 @@ import useForm from '../lib/useForm'
 import Form from './styles/Form'
 import DisplayError from './ErrorMessage'
 import CREATE_TIER from '../mutations/createTier'
+import SINGLE_BATTLE_PASS from '../queries/singleBattlePass'
 
 interface CreateTierProps {
   bp_id: string
@@ -18,6 +19,7 @@ export default function CreateTier({ bp_id }: CreateTierProps) {
 
   const [createTier, { loading, error, data }] = useMutation(CREATE_TIER, {
     variables: inputs,
+    refetchQueries: [{ query: SINGLE_BATTLE_PASS, variables: { bp_id } }],
   })
 
   return (
