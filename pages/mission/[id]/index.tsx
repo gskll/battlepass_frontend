@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import Mission from '../../components/Mission'
+import Mission from '../../../components/Mission'
 
 interface MissionPageProps {
   query: {

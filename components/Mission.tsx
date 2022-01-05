@@ -6,6 +6,7 @@ import SinglePageStyles from './styles/SinglePageStyles'
 import formatUppercaseString from '../lib/formatUppercaseString'
 import Link from 'next/link'
 import OutlineBtn from './styles/OutlineBtn'
+import EditBtn from './styles/EditBtn'
 
 interface MissionProps {
   id: string
@@ -33,6 +34,9 @@ const Mission = ({ id }: MissionProps) => {
           <p>Description: {mission.description}</p>
           <p>Experience awarded on completion: {mission.exp_awarded}</p>
         </div>
+        <Link href={`/mission/${id}/update`} passHref>
+          <EditBtn>Edit Mission ✏️</EditBtn>
+        </Link>
       </div>
       <div className="accent">
         <p>Mission belongs to {mission.battlepass?.name} battle pass</p>
