@@ -46,12 +46,12 @@ const Level = ({ id }: LevelProps) => {
             <SolidBtn>Edit reward ✏️</SolidBtn>
           </Link>
         </CardStyles>
-        <div className="accent">
-          <p>Level belongs to {level.tier.name} tier</p>
-          <Link href={`/tier/${level.tier.id}`} passHref>
-            <OutlineBtn>View tier</OutlineBtn>
-          </Link>
-        </div>
+      </div>
+      <div className="accent">
+        <p>Level belongs to {level.tier.name} tier</p>
+        <Link href={`/tier/${level.tier.id}`} passHref>
+          <OutlineBtn>View tier</OutlineBtn>
+        </Link>
       </div>
     </SinglePageStyles>
   )

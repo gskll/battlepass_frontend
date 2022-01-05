@@ -31,14 +31,14 @@ const Mission = ({ id }: MissionProps) => {
         </div>
         <div className="description">
           <p>Description: {mission.description}</p>
-        </div>
-        <div className="accent">
           <p>Experience awarded on completion: {mission.exp_awarded}</p>
-          <p>Mission belongs to {mission.battlepass?.name} battle pass</p>
-          <Link href={`/bp/${mission.battlepass?.id}`} passHref>
-            <OutlineBtn>View battle pass</OutlineBtn>
-          </Link>
         </div>
+      </div>
+      <div className="accent">
+        <p>Mission belongs to {mission.battlepass?.name} battle pass</p>
+        <Link href={`/bp/${mission.battlepass?.id}`} passHref>
+          <OutlineBtn>View battle pass</OutlineBtn>
+        </Link>
       </div>
     </SinglePageStyles>
   )

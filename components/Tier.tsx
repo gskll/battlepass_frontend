@@ -30,34 +30,34 @@ const Tier = ({ tier_id }: TierProps) => {
         <div className="sub-head">
           <p>Price: {formatMoney(parseInt(tier.price))}</p>
         </div>
-        <div className="accent">
-          <p>Tier belongs to {tier.battlepass?.name} battle pass</p>
-          <Link href={`/bp/${tier.battlepass?.id}`} passHref>
-            <OutlineBtn>View battle pass</OutlineBtn>
+      </div>
+      <div className="accent">
+        <p>Tier belongs to {tier.battlepass?.name} battle pass</p>
+        <Link href={`/bp/${tier.battlepass?.id}`} passHref>
+          <OutlineBtn>View battle pass</OutlineBtn>
+        </Link>
+      </div>
+      <div className="levels">
+        <div className="sub-title">
+          <h2>Levels</h2>
+          <Link href={`/tier/${tier_id}/level`} passHref>
+            <OutlineBtn className="add-button">+ Add level</OutlineBtn>
           </Link>
         </div>
-        <div className="levels">
-          <div className="sub-title">
-            <h2>Levels</h2>
-            <Link href={`/tier/${tier_id}/level`} passHref>
-              <OutlineBtn className="add-button">+ Add level</OutlineBtn>
-            </Link>
-          </div>
-          <div className="levels-list">
-            {tier.levels.map((level: Level) => (
-              <LevelListItem key={level.id} level={level} />
-            ))}
-          </div>
+        <div className="levels-list">
+          {tier.levels.map((level: Level) => (
+            <LevelListItem key={level.id} level={level} />
+          ))}
         </div>
-        <div className="rewards">
-          <div className="sub-title">
-            <h2>All Rewards in Tier</h2>
-          </div>
-          <div className="rewards-list">
-            {tier.rewards?.map((reward: Reward) => (
-              <RewardListItem key={reward.id} reward={reward} />
-            ))}
-          </div>
+      </div>
+      <div className="rewards">
+        <div className="sub-title">
+          <h2>All Rewards in Tier</h2>
+        </div>
+        <div className="rewards-list">
+          {tier.rewards?.map((reward: Reward) => (
+            <RewardListItem key={reward.id} reward={reward} />
+          ))}
         </div>
       </div>
     </SinglePageStyles>

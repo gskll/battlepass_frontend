@@ -30,10 +30,6 @@ const SinglePageStyles = styled.div`
     font-size: 3rem;
   }
 
-  .description > * {
-    display: inline-block;
-  }
-
   .sub-title > * {
     display: inline-block;
     margin-right: 4rem;
