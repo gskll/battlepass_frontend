@@ -22,7 +22,7 @@ function BattlePassForm({
             id="name"
             name="name"
             placeholder="Name"
-            value={inputs.name}
+            value={inputs.name || ''}
             onChange={handleChange}
             required
           />
@@ -33,7 +33,7 @@ function BattlePassForm({
             id="description"
             name="description"
             placeholder="Description"
-            value={inputs.description}
+            value={inputs.description || ''}
             onChange={handleChange}
           />
         </label>
@@ -42,7 +42,7 @@ function BattlePassForm({
           <select
             id="status"
             name="status"
-            value={inputs.status}
+            value={inputs.status || ''}
             onChange={handleChange}
           >
             <option value="DRAFT">Draft</option>
@@ -59,7 +59,7 @@ function BattlePassForm({
             id="experience"
             name="experience"
             placeholder="Experience"
-            value={inputs.experience}
+            value={inputs.experience || ''}
             onChange={handleChange}
             required
           />
@@ -71,7 +71,7 @@ function BattlePassForm({
             id="start_date"
             name="start_date"
             placeholder="Start Date"
-            value={inputs.start_date?.substring(0, 10)}
+            value={inputs.start_date?.substring(0, 10) || ''}
             onChange={handleChange}
             required
           />
@@ -83,7 +83,7 @@ function BattlePassForm({
             id="end_date"
             name="end_date"
             placeholder="End Date"
-            value={inputs.end_date?.substring(0, 10)}
+            value={inputs.end_date?.substring(0, 10) || ''}
             onChange={handleChange}
             required
           />
