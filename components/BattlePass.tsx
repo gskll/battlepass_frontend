@@ -57,7 +57,9 @@ export default function BattlePass({ bp_id }: BattlePassProps) {
       <div className="Missions">
         <div className="sub-title">
           <h2>Missions</h2>
-          <OutlineBtn>+ Add mission</OutlineBtn>
+          <Link href={`/bp/${bp_id}/mission`} passHref>
+            <OutlineBtn>+ Add mission</OutlineBtn>
+          </Link>
         </div>
         <div className="mission-list">
           {battlePass.missions.map((mission: Mission) => (
