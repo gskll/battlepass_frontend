@@ -8,6 +8,7 @@ import OutlineBtn from './styles/OutlineBtn'
 import formatMoney from '../lib/formatMoney'
 import RewardListItem from './RewardListItem'
 import LevelListItem from './LevelListItem'
+import EditBtn from './styles/EditBtn'
 
 interface TierProps {
   tier_id: string
@@ -30,6 +31,9 @@ const Tier = ({ tier_id }: TierProps) => {
         <div className="sub-head">
           <p>Price: {formatMoney(parseInt(tier.price))}</p>
         </div>
+        <Link href={`/tier/${tier_id}/update`} passHref>
+          <EditBtn>Edit Tier ✏️</EditBtn>
+        </Link>
       </div>
       <div className="accent">
         <p>Tier belongs to {tier.battlepass?.name} battle pass</p>

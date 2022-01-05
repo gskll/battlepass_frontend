@@ -1,5 +1,4 @@
 import { useMutation, useQuery } from '@apollo/client'
-import gql from 'graphql-tag'
 import Router from 'next/router'
 import useForm from '../lib/useForm'
 import UPDATE_BATTLE_PASS_MUTATION from '../mutations/updateBattlePass'
