@@ -10,19 +10,18 @@ import RewardListItem from './RewardListItem'
 import LevelListItem from './LevelListItem'
 
 interface TierProps {
-  id: string
+  tier_id: string
 }
 
-const Tier = ({ id }: TierProps) => {
+const Tier = ({ tier_id }: TierProps) => {
   const { data, loading, error } = useQuery(SINGLE_TIER, {
-    variables: { id },
+    variables: { tier_id },
   })
 
   if (loading) return <p>Loading...</p>
   if (error) return <ErrorMessage error={error} />
 
   const { tier }: { tier: Tier } = data
-  console.log(tier)
 
   return (
     <SinglePageStyles>
@@ -40,7 +39,9 @@ const Tier = ({ id }: TierProps) => {
         <div className="levels">
           <div className="sub-title">
             <h2>Levels</h2>
-            <OutlineBtn className="add-button">+ Add level</OutlineBtn>
+            <Link href={`/tier/${tier_id}/level`} passHref>
+              <OutlineBtn className="add-button">+ Add level</OutlineBtn>
+            </Link>
           </div>
           <div className="levels-list">
             {tier.levels.map((level: Level) => (

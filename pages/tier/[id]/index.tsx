@@ -1,5 +1,5 @@
 import { NextPage } from 'next'
-import Tier from '../../components/Tier'
+import Tier from '../../../components/Tier'
 
 interface TierPageProps {
   query: {
@@ -8,7 +8,7 @@ interface TierPageProps {
 }
 
 const TierPage: NextPage<TierPageProps> = ({ query }) => {
-  return <Tier id={query.id} />
+  return <Tier tier_id={query.id} />
 }
 
 export default TierPage

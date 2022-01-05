@@ -1,8 +1,8 @@
 import gql from 'graphql-tag'
 
 const SINGLE_TIER = gql`
-  query SINGLE_TIER($id: ID!) {
-    tier(where: { id: $id }) {
+  query SINGLE_TIER($tier_id: ID!) {
+    tier(where: { id: $tier_id }) {
       name
       price
       battlepass {
