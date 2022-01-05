@@ -8,6 +8,7 @@ import TierListItem from './TierListItem'
 import { Mission, Reward, Tier } from '../types'
 import MissionListItem from './MissionListItem'
 import RewardListItem from './RewardListItem'
+import Link from 'next/link'
 
 interface BattlePassProps {
   id: string
@@ -22,6 +23,7 @@ export default function BattlePass({ id }: BattlePassProps) {
   if (error) return <ErrorMessage error={error} />
 
   const { battlePass } = data
+
   return (
     <SinglePageStyles>
       <div className="overview">
@@ -42,7 +44,9 @@ export default function BattlePass({ id }: BattlePassProps) {
       <div className="tiers">
         <div className="sub-title">
           <h2>Tiers</h2>
-          <OutlineBtn className="add-button">+ Add tier</OutlineBtn>
+          <Link href={`/bp/${id}/tier`} passHref>
+            <OutlineBtn>+ Add tier</OutlineBtn>
+          </Link>
         </div>
         <div className="tier-list">
           {battlePass.tiers.map((tier: Tier) => (
@@ -53,7 +57,7 @@ export default function BattlePass({ id }: BattlePassProps) {
       <div className="Missions">
         <div className="sub-title">
           <h2>Missions</h2>
-          <OutlineBtn className="add-button">+ Add mission</OutlineBtn>
+          <OutlineBtn>+ Add mission</OutlineBtn>
         </div>
         <div className="mission-list">
           {battlePass.missions.map((mission: Mission) => (
