@@ -53,7 +53,7 @@ function BattlePassForm({
         </label>
         <label htmlFor="experience">
           Experience per level
-          {errors.experience && <FormError>{errors.experience}</FormError>}
+          {errors?.experience && <FormError>{errors?.experience}</FormError>}
           <input
             type="number"
             id="experience"
