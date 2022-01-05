@@ -1,34 +1,137 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Battle Pass Editor -- Frontend
 
-## Getting Started
+**(See the backend here)[https://github.com/gskll/battlepass_backend]**
 
-First, run the development server:
+## Get Started
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+1. Clone the repo
+2. `npm install`
+3. `npm run dev` -- the frontend will be running on `localhost/7777` -- the backend must be running at the same time
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech stack
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- Frontend
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+  - React
+  - NextJS
+  - Apollo Client
+  - Styled Components
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- 'Backend'
+  - KeystoneJS (headless CMS)
+    - Node
+    - SQLite
 
-## Learn More
+## Features
 
-To learn more about Next.js, take a look at the following resources:
+Battle pass editor utility
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- The app is a utility to edit a game's battle pass.
+- Each battle pass has different tiers, which offer different rewards once you complete daily or weekly missions.
+- Each tier has an associated price, along with different rewards as you progress along the levels.
+- Each level has an associated reward
+- Each battle pass also has associated missions to gain experience and progress through the levels
+- Each mission has a type/goal and an associated amount of experience on completion
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+1. Users have general rules to set the experience needed for each level and the availability date range
+2. Ability to set daily and weekly missions to get experience for the Battle Pass. The missions can have different goals (collect resources, win combats, level up...)
+3. Users can edit the available tiers, with their names and prices.
+4. Users can configure each tier, to set rewards for each level (gold, food, creatures...)
+5. Users can save a Battle Pass draft to continue editing it later
+6. In case of an error, a description of the error will be shown
 
-## Deploy on Vercel
+## Improvements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Client-side form validation
+- Drag and drop interface
+- Constraints on how similar/different tiers can be
+- Multi-user real time editing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Frontend Page Structure
+
+- `/` & `/bp` Homepage
+  - shows all battle passes regardless of date and status
+  - create new battle pass button
+- `/bp/new` Create new battle pass page
+  - Form with new battle pass details
+  - Name, availability, experience between levels
+  - Tiers
+- `/bp/[bp_id]` Battle pass page
+  - show details for each pass
+    - name, status, availability
+    - experience between levels
+    - tiers
+    - missions
+    - overview of all rewards available in the battle pass
+  - create a new tier button
+- `/bp/[bp_id]/edit` Edit battle pass page
+
+  - Allows editing of battle pass meta details and tier configuration
+
+- `/bp/[bp_id]/tier` Create new tier
+  - Form with new tier details
+- `/tier/[tier_id]` Tier page
+  - shows details for each tier associated with a battle pass
+  - name, price, number of levels
+  - shows each level with the associated reward
+  - overview of all rewards available in that tier
+  - create a new level button
+- `/tier/[tier_id]/edit` Edit tier page
+
+  - allows editing of the tier's details
+
+- `/tier/[tier_id]/level` Create a new level
+
+  - Level number (1,2,3...)
+  - Reward
+
+- `/bp/[bp_id]/mission` Create a new mission
+- `/level/[level_id]` Edit level / reward
+
+## Database Schema
+
+### Battlepass
+
+- Id
+- Name
+- Start_date
+- End_date
+- Experience
+- Tiers
+- Missions
+- Rewards
+
+### Tier
+
+- Id
+- Name
+- Price
+- Levels
+- Battlepass_id
+- Rewards
+
+### Level
+
+- Id
+- Name
+- Reward
+- Tier_id
+
+### Reward
+
+- Id
+- Name
+- Description
+- Type - Gold, Food, Creature, Weapon, Skin, Ability
+- Rarity - Common, Unusual, Rare, Legendary
+- Level_id
+
+### Mission
+
+- Id
+- Name
+- Description
+- Type - Daily, Weekly
+- Goal_type - Gametime, Victories, Collection, Levelup
+- Exp_awarded
+- Battlepass_id
