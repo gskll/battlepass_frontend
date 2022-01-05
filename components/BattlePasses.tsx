@@ -1,21 +1,10 @@
 import { gql, useQuery } from '@apollo/client'
 import Link from 'next/link'
 import styled from 'styled-components'
+import ALL_BATTLEPASSES_QUERY from '../queries/allBattlePasses'
 import { BattlePassOverview } from '../types'
 import BattlePassCard from './BattlePassCard'
 import SolidBtn from './styles/SolidBtn'
-
-export const ALL_BATTLEPASSES_QUERY = gql`
-  query ALL_BATTLEPASSES_QUERY {
-    battlePasses {
-      id
-      name
-      status
-      start_date
-      end_date
-    }
-  }
-`
 
 const BattlePassGridStyles = styled.div`
   display: grid;

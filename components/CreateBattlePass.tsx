@@ -4,6 +4,7 @@ import useForm from '../lib/useForm'
 import Form from './styles/Form'
 import DisplayError from './ErrorMessage'
 import CREATE_BATTLE_PASS_MUTATION from '../mutations/createBattlePass'
+import ALL_BATTLEPASSES_QUERY from '../queries/allBattlePasses'
 
 export default function CreateBattlePass() {
   const { inputs, handleChange, resetForm, clearForm } = useForm({
@@ -19,6 +20,7 @@ export default function CreateBattlePass() {
     CREATE_BATTLE_PASS_MUTATION,
     {
       variables: inputs,
+      refetchQueries: [{ query: ALL_BATTLEPASSES_QUERY }],
     }
   )
 
