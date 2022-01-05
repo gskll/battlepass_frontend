@@ -9,6 +9,7 @@ import { Mission, Reward, Tier } from '../types'
 import MissionListItem from './MissionListItem'
 import RewardListItem from './RewardListItem'
 import Link from 'next/link'
+import EditBtn from './styles/EditBtn'
 
 interface BattlePassProps {
   bp_id: string
@@ -40,6 +41,15 @@ export default function BattlePass({ bp_id }: BattlePassProps) {
         <div className="description">
           <p>Description: {battlePass.description}</p>
         </div>
+        <Link href={`/bp/${bp_id}/update`} passHref>
+          <EditBtn>Edit Battle Pass ✏️</EditBtn>
+        </Link>
+      </div>
+      <div className="accent">
+        <p>View all battle passes</p>
+        <Link href="/" passHref>
+          <OutlineBtn>All battle passes</OutlineBtn>
+        </Link>
       </div>
       <div className="tiers">
         <div className="sub-title">

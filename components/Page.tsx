@@ -4,6 +4,7 @@ import Header from './Header'
 const GlobalStyles = createGlobalStyle`
   html {
     --red: #E72222;
+    --orange: #FF8E3C;
     --black: #393939;
     --grey: #3a3a3a;
     --gray: var(--grey);
