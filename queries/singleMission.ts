@@ -7,6 +7,7 @@ const SINGLE_MISSION = gql`
       description
       type
       goal_type
+      exp_awarded
       battlepass {
         id
         name

@@ -50,4 +50,5 @@ export interface Mission {
   type: string
   goal_type: string
   battlepass?: BattlePass
+  exp_awarded: string
 }
