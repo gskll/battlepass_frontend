@@ -1,13 +1,9 @@
 import gql from 'graphql-tag'
 
-const SINGLE_LEVEL = gql`
-  query SINGLE_LEVEL($lvl_id: ID!) {
+const LEVEL_OVERVIEW = gql`
+  query LEVEL_OVERVIEW($lvl_id: ID!) {
     level(where: { id: $lvl_id }) {
       name
-      tier {
-        id
-        name
-      }
       reward {
         id
         name
@@ -19,4 +15,4 @@ const SINGLE_LEVEL = gql`
   }
 `
 
-export default SINGLE_LEVEL
+export default LEVEL_OVERVIEW

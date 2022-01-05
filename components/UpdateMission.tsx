@@ -14,12 +14,12 @@ interface UpdateMissionProps {
 }
 
 export default function UpdateMission({ id }: UpdateMissionProps) {
-  // Get the existing product
+  // Get the existing data
   const { data, error, loading } = useQuery(MISSION_OVERVIEW, {
     variables: { id },
   })
 
-  // Get the mutation to update the product
+  // Get the mutation to update the data
   const [
     updateMission,
     { data: updateData, error: updateError, loading: updateLoading },

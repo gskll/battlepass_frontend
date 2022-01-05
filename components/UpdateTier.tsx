@@ -14,12 +14,12 @@ interface UpdateTierProps {
 }
 
 export default function UpdateTier({ tier_id }: UpdateTierProps) {
-  // Get the existing product
+  // Get the existing data
   const { data, error, loading } = useQuery(TIER_OVERVIEW, {
     variables: { tier_id },
   })
 
-  // Get the mutation to update the product
+  // Get the mutation to update the data
   const [
     updateTier,
     { data: updateData, error: updateError, loading: updateLoading },

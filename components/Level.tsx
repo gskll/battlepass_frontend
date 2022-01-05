@@ -7,15 +7,15 @@ import formatUppercaseString from '../lib/formatUppercaseString'
 import Link from 'next/link'
 import OutlineBtn from './styles/OutlineBtn'
 import CardStyles from './styles/CardStyles'
-import SolidBtn from './styles/SolidBtn'
+import EditBtn from './styles/EditBtn'
 
 interface LevelProps {
-  id: string
+  lvl_id: string
 }
 
-const Level = ({ id }: LevelProps) => {
+const Level = ({ lvl_id }: LevelProps) => {
   const { data, loading, error } = useQuery(SINGLE_LEVEL, {
-    variables: { id },
+    variables: { lvl_id },
   })
 
   if (loading) return <p>Loading...</p>
@@ -42,8 +42,8 @@ const Level = ({ id }: LevelProps) => {
             {formatUppercaseString(reward.rarity)}
           </p>
           <p className="text">{reward.description}</p>
-          <Link href="/" passHref={true}>
-            <SolidBtn>Edit reward ✏️</SolidBtn>
+          <Link href={`/level/${lvl_id}/update`} passHref={true}>
+            <EditBtn>Edit reward ✏️</EditBtn>
           </Link>
         </CardStyles>
       </div>

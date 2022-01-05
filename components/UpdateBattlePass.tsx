@@ -11,12 +11,12 @@ interface UpdateBattlePassProps {
 }
 
 export default function UpdateBattlePass({ bp_id }: UpdateBattlePassProps) {
-  // Get the existing product
+  // Get the existing data
   const { data, error, loading } = useQuery(BATTLE_PASS_OVERVIEW_QUERY, {
     variables: { bp_id },
   })
 
-  // Get the mutation to update the product
+  // Get the mutation to update the data
   const [
     updateBattlePass,
     { data: updateData, error: updateError, loading: updateLoading },
